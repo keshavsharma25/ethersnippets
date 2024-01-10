@@ -1,24 +1,41 @@
 {
-	"name": "ethersnippets",
-	"displayName": "EtherSnippets",
-	"description": "Solidity and Viper code snippets for better productivity",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.85.0"
-	},
-	"categories": [
-		"Snippets"
-	],
-	"contributes": {
-		"snippets": [
-			{
-				"language": "solidity",
-				"path": "./snippets/soliditySnippets.code-snippets"
-			},
-			{
-				"language": "vyper",
-				"path": "./snippets/vyperSnippets.code-snippets"
-			}
-		]
-	}
+  "name": "ethersnippets",
+  "displayName": "EtherSnippets",
+  "description": "Solidity and Viper code snippets for better productivity",
+  "version": "0.0.1",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "solidity",
+        "path": "./snippets/generatedSoliditySnippets.json"
+      },
+      {
+        "language": "vyper",
+        "path": "./snippets/generatedVyperSnippets.json"
+      }
+    ],
+    "command": {},
+    "configuration": {}
+  },
+  "scripts": {
+    "lint": "eslint --ignore-path .eslintignore --ext .ts,.js",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.8",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  }
 }
