@@ -1,6 +1,6 @@
 {
   "name": "ethersnippets",
-  "displayName": "EtherSnippets",
+  "displayName": "Ether Snippets",
   "description": "Solidity and Viper code snippets for better productivity",
   "version": "0.0.1",
   "license": "MIT",
@@ -10,6 +10,8 @@
   "categories": [
     "Snippets"
   ],
+  "activationEvents": [],
+  "main": "./out/index.js",
   "contributes": {
     "snippets": [
       {
@@ -21,12 +23,19 @@
         "path": "./snippets/generatedVyperSnippets.json"
       }
     ],
-    "command": {},
-    "configuration": {}
+    "commands": [
+      {
+        "command": "ethersnippets.getSoliditySnippets",
+        "title": "Solidity Snippets"
+      }
+    ]
   },
   "scripts": {
-    "lint": "eslint --ignore-path .eslintignore --ext .ts,.js",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
+    "vscode:prepublish": "pnpm run compile",
+    "lint": "eslint src --ignore-path .eslintignore --ext .ts,.js",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
   },
   "devDependencies": {
     "@types/node": "^20.10.8",
