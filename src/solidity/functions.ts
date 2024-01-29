@@ -1,8 +1,13 @@
 import { SnippetType } from "../types";
-import { choicePlaceholder, tabPlaceholder } from "../utils/constants";
+import {
+  choicePlaceholder,
+  defaultPlaceholders,
+  tabPlaceholder,
+} from "../utils/constants";
 import { primitiveTypesChoices } from "../utils/formatters";
 
 type FunctionMappings = {
+  constructorSol: "ctr";
   functionReceive: "fr";
   functionFallback: "ff";
   functionPublic: "fpu";
@@ -21,7 +26,17 @@ type FunctionMappings = {
   functionExternalPureReturns: "fepr";
 };
 
+const { CAMEL_VARIABLE } = defaultPlaceholders;
+
 export type FunctionSnippets = SnippetType<FunctionMappings>;
+
+const constructorSol: FunctionSnippets = {
+  key: "constructorSol",
+  prefix: "ctr",
+  body: ["constructor() {", "", "}"],
+  description: "constructor",
+  scope: "solidity",
+};
 
 const functionReceive: FunctionSnippets = {
   key: "functionReceive",
@@ -42,7 +57,7 @@ const functionFallback: FunctionSnippets = {
 const functionPublic: FunctionSnippets = {
   key: "functionPublic",
   prefix: "fpu",
-  body: [`function ${tabPlaceholder(1, "foo")}() public {`, "", "}"],
+  body: [`function ${tabPlaceholder(1, CAMEL_VARIABLE)}() public {`, "", "}"],
   description: "function public",
   scope: "solidity",
 };
@@ -51,7 +66,7 @@ const functionPublicPayable: FunctionSnippets = {
   key: "functionPublicPayable",
   prefix: "fpup",
   body: [
-    `function ${tabPlaceholder(1, "functionName")}() public payable {`,
+    `function ${tabPlaceholder(1, CAMEL_VARIABLE)}() public payable {`,
     "",
     `}`,
   ],
@@ -65,7 +80,7 @@ const functionPublicViewReturns: FunctionSnippets = {
   body: [
     `function ${tabPlaceholder(
       1,
-      "functionName",
+      CAMEL_VARIABLE,
     )}() public view returns (${choicePlaceholder(
       2,
       primitiveTypesChoices(),
@@ -83,7 +98,7 @@ const functionPublicPureReturns: FunctionSnippets = {
   body: [
     `function ${tabPlaceholder(
       1,
-      "functionName",
+      CAMEL_VARIABLE,
     )}() public pure returns (${choicePlaceholder(
       2,
       primitiveTypesChoices(),
@@ -98,7 +113,7 @@ const functionPublicPureReturns: FunctionSnippets = {
 const functionPrivate: FunctionSnippets = {
   key: "functionPrivate",
   prefix: "fpr",
-  body: [`function ${tabPlaceholder(1, "functionName")}() private {`, "", "}"],
+  body: [`function ${tabPlaceholder(1, CAMEL_VARIABLE)}() private {`, "", "}"],
   description: "function private",
   scope: "solidity",
 };
@@ -109,7 +124,7 @@ const functionPrivateViewReturns: FunctionSnippets = {
   body: [
     `function ${tabPlaceholder(
       1,
-      "functionName",
+      CAMEL_VARIABLE,
     )}() private view returns (${choicePlaceholder(
       2,
       primitiveTypesChoices(),
@@ -127,7 +142,7 @@ const functionPrivatePureReturns: FunctionSnippets = {
   body: [
     `function ${tabPlaceholder(
       1,
-      "functionName",
+      CAMEL_VARIABLE,
     )}() private pure returns (${choicePlaceholder(
       2,
       primitiveTypesChoices(),
@@ -142,7 +157,7 @@ const functionPrivatePureReturns: FunctionSnippets = {
 const functionInternal: FunctionSnippets = {
   key: "functionInternal",
   prefix: "fi",
-  body: [`function ${tabPlaceholder(1, "functionName")}() internal {`, "", "}"],
+  body: [`function ${tabPlaceholder(1, CAMEL_VARIABLE)}() internal {`, "", "}"],
   description: "function internal",
   scope: "solidity",
 };
@@ -153,7 +168,7 @@ const functionInternalViewReturns: FunctionSnippets = {
   body: [
     `function ${tabPlaceholder(
       1,
-      "functionName",
+      CAMEL_VARIABLE,
     )}() internal view returns (${choicePlaceholder(
       2,
       primitiveTypesChoices(),
@@ -171,7 +186,7 @@ const functionInternalPureReturns: FunctionSnippets = {
   body: [
     `function ${tabPlaceholder(
       1,
-      "functionName",
+      CAMEL_VARIABLE,
     )}() internal pure returns (${choicePlaceholder(
       2,
       primitiveTypesChoices(),
@@ -186,7 +201,7 @@ const functionInternalPureReturns: FunctionSnippets = {
 const functionExternal: FunctionSnippets = {
   key: "functionExternal",
   prefix: "fe",
-  body: [`function ${tabPlaceholder(1, "functionName")}() external {`, "", "}"],
+  body: [`function ${tabPlaceholder(1, CAMEL_VARIABLE)}() external {`, "", "}"],
   description: "function external",
   scope: "solidity",
 };
@@ -195,7 +210,7 @@ const functionExternalPayable: FunctionSnippets = {
   key: "functionExternalPayable",
   prefix: "fep",
   body: [
-    `function ${tabPlaceholder(1, "functionName")}() external payable {`,
+    `function ${tabPlaceholder(1, CAMEL_VARIABLE)}() external payable {`,
     "",
     "}",
   ],
@@ -209,7 +224,7 @@ const functionExternalViewReturns: FunctionSnippets = {
   body: [
     `function ${tabPlaceholder(
       1,
-      "functionName",
+      CAMEL_VARIABLE,
     )}() external view returns (${choicePlaceholder(
       2,
       primitiveTypesChoices(),
@@ -227,7 +242,7 @@ const functionExternalPureReturns: FunctionSnippets = {
   body: [
     `function ${tabPlaceholder(
       1,
-      "functionName",
+      CAMEL_VARIABLE,
     )}() external pure returns (${choicePlaceholder(
       2,
       primitiveTypesChoices(),
@@ -240,6 +255,7 @@ const functionExternalPureReturns: FunctionSnippets = {
 };
 
 export default [
+  constructorSol,
   functionReceive,
   functionFallback,
   functionPublic,
