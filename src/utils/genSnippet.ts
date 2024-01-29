@@ -1,28 +1,5 @@
 import { writeFileSync } from "fs";
-import functionSnippets, { FunctionSnippets } from "../solidity/functions";
-import errorSnippets, { ErrorSnippets } from "../solidity/errors";
-
-export type SnippetKeys = FunctionSnippets["key"] | ErrorSnippets["key"];
-
-export type Snippet = FunctionSnippets | ErrorSnippets;
-
-export type Snippets = {
-  [key in SnippetKeys]: Snippet;
-};
-
-const getSoliditySnippets = () => {
-  const snippets = [...functionSnippets, ...errorSnippets].reduce(
-    (acc, snippet) => ({
-      ...acc,
-      [snippet.key]: snippet,
-    }),
-    {} as Snippets,
-  );
-
-  return snippets;
-};
-
-// const getVyperSnippets = () => {};
+import { getSoliditySnippets } from "../solidity";
 
 export const genSnippets = async () => {
   const soliditySnippets = getSoliditySnippets();
