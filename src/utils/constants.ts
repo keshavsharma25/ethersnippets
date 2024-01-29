@@ -12,9 +12,11 @@ export const choicePlaceholder = (place: number, value: Choice) => {
 };
 
 export const defaultPlaceholders = {
-  filename: "$TM_FILENAME_BASE",
-  clipboard: "$CLIPBOARD",
-  blockCommentStart: "$BLOCK_COMMENT_START",
-  blockCommentEnd: "$BLOCK_COMMENT_END",
-  lineComment: "$LINE_COMMENT",
+  FILENAME: "$TM_FILENAME_BASE",
+  CLIPBOARD: "$CLIPBOARD",
+  BLOCK_COMMENT_START: "$BLOCK_COMMENT_START",
+  BLOCK_COMMENT_END: "$BLOCK_COMMENT_END",
+  LINE_COMMENT: "$LINE_COMMENT",
+  CAMEL_VARIABLE: "fooBar",
+  PASCAL_VARIABLE: "FooBar",
 } as const;
