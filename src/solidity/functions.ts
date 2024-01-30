@@ -6,7 +6,7 @@ import {
 } from "../utils/constants";
 import { primitiveTypesChoices } from "../utils/formatters";
 
-type FunctionMappings = {
+type FunctionMapping = {
   constructorSol: "ctr";
   functionReceive: "fr";
   functionFallback: "ff";
@@ -28,7 +28,7 @@ type FunctionMappings = {
 
 const { CAMEL_VARIABLE } = defaultPlaceholders;
 
-export type FunctionSnippets = SnippetType<FunctionMappings>;
+export type FunctionSnippets = SnippetType<FunctionMapping>;
 
 const constructorSol: FunctionSnippets = {
   key: "constructorSol",

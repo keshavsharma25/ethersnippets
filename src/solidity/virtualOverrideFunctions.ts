@@ -6,7 +6,7 @@ import {
 } from "../utils/constants";
 import { primitiveTypesChoices } from "../utils/formatters";
 
-type VirtualOverrideFunctionsMappings = {
+type VirtualOverrideFunctionsMapping = {
   virtualOverrideFunctionPublic: "vofpu";
   virtualOverrideFunctionPublicPayable: "vofpup";
   virtualOverrideFunctionPublicViewReturns: "vofpuvr";
@@ -26,7 +26,7 @@ type VirtualOverrideFunctionsMappings = {
 const { CAMEL_VARIABLE } = defaultPlaceholders;
 
 export type VirtualOverrideFunctionsSnippets =
-  SnippetType<VirtualOverrideFunctionsMappings>;
+  SnippetType<VirtualOverrideFunctionsMapping>;
 
 const virtualOverrideFunctionPublic: VirtualOverrideFunctionsSnippets = {
   key: "virtualOverrideFunctionPublic",

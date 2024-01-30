@@ -6,7 +6,7 @@ import {
 } from "../utils/constants";
 import { primitiveTypesChoices } from "../utils/formatters";
 
-type VirtualFunctionsMappings = {
+type VirtualFunctionsMapping = {
   virtualFunctionPublic: "vfpu";
   virtualFunctionPublicPayable: "vfpup";
   virtualFunctionPublicViewReturns: "vfpuvr";
@@ -25,7 +25,7 @@ type VirtualFunctionsMappings = {
 
 const { CAMEL_VARIABLE } = defaultPlaceholders;
 
-export type VirtualFunctionsSnippets = SnippetType<VirtualFunctionsMappings>;
+export type VirtualFunctionsSnippets = SnippetType<VirtualFunctionsMapping>;
 
 const virtualFunctionPublic: VirtualFunctionsSnippets = {
   key: "virtualFunctionPublic",

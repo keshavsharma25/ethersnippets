@@ -6,7 +6,7 @@ import {
 } from "../utils/constants";
 import { primitiveTypesChoices } from "../utils/formatters";
 
-type OverrideFunctionsMappings = {
+type OverrideFunctionsMapping = {
   overrideFunctionPublic: "ofpu";
   overrideFunctionPublicPayable: "ofpup";
   overrideFunctionPublicViewReturns: "ofpuvr";
@@ -23,7 +23,7 @@ type OverrideFunctionsMappings = {
   overrideFunctionExternalPureReturns: "ofepr";
 };
 
-export type OverrideFunctionsSnippets = SnippetType<OverrideFunctionsMappings>;
+export type OverrideFunctionsSnippets = SnippetType<OverrideFunctionsMapping>;
 
 const { CAMEL_VARIABLE } = defaultPlaceholders;
 
