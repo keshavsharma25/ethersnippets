@@ -12,6 +12,7 @@ export const choicePlaceholder = (place: number, value: Choice) => {
 };
 
 export const defaultPlaceholders = {
+  FINAL_CURSOR: "$0",
   FILENAME: "$TM_FILENAME_BASE",
   CLIPBOARD: "$CLIPBOARD",
   BLOCK_COMMENT_START: "$BLOCK_COMMENT_START",
