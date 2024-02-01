@@ -11,12 +11,12 @@ type EntitiesMapping = {
 
 export type EntitiesSnippets = SnippetType<EntitiesMapping>;
 
-const { PASCAL_VARIABLE } = defaultPlaceholders;
+const { FILENAME } = defaultPlaceholders;
 
 const abstractContract: EntitiesSnippets = {
   key: "abstractContract",
   prefix: "act",
-  body: [`abstract contract ${tabPlaceholder(1, PASCAL_VARIABLE)} {`, "", "}"],
+  body: [`abstract contract ${tabPlaceholder(1, FILENAME)} {`, "", "}"],
   description: "abstract contract",
   scope: "solidity",
 };
@@ -24,7 +24,7 @@ const abstractContract: EntitiesSnippets = {
 const contract: EntitiesSnippets = {
   key: "contract",
   prefix: "ct",
-  body: [`contract ${tabPlaceholder(1, PASCAL_VARIABLE)} {`, "", "}"],
+  body: [`contract ${tabPlaceholder(1, FILENAME)} {`, "", "}"],
   description: "contract",
   scope: "solidity",
 };
@@ -32,7 +32,7 @@ const contract: EntitiesSnippets = {
 const library: EntitiesSnippets = {
   key: "library",
   prefix: "lib",
-  body: [`library ${tabPlaceholder(1, PASCAL_VARIABLE)} {`, "", "}"],
+  body: [`library ${tabPlaceholder(1, FILENAME)} {`, "", "}"],
   description: "library",
   scope: "solidity",
 };
@@ -40,7 +40,7 @@ const library: EntitiesSnippets = {
 const interfaceSol: EntitiesSnippets = {
   key: "interfaceSol",
   prefix: "ifce",
-  body: [`interface ${tabPlaceholder(1, PASCAL_VARIABLE)} {`, "", "}"],
+  body: [`interface ${tabPlaceholder(1, FILENAME)} {`, "", "}"],
   description: "interface",
   scope: "solidity",
 };
