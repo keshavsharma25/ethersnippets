@@ -1,6 +1,7 @@
-import { Choice, PrimitiveTypes } from "../types";
+import { Choice } from "../types";
+import { Primitives } from "./constants";
 
 export const primitiveTypesChoices = (): Choice => {
-  const primitives = Object.values(PrimitiveTypes).join(",");
+  const primitives = Object.values(Primitives).join(",");
   return `|${primitives}|`;
 };
