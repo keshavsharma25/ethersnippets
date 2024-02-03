@@ -1,5 +1,11 @@
 import { Choice, ChoiceType, PlaceholderType } from "../types";
 
+export const SPDX_LICENSE_URL =
+  "https://raw.githubusercontent.com/spdx/license-list-data/main/json/licenses.json";
+
+export const SOLIDITY_VERSION_URL =
+  "https://api.github.com/repos/ethereum/solidity/releases";
+
 export const tabPlaceholder = (place: number, value: string) => {
   return ("${" + place + ":" + value + "}") as PlaceholderType<
     typeof place,
