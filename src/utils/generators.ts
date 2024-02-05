@@ -21,18 +21,16 @@ export const genLicenseIds = async () => {
     const licenseIds = await getLicenseIds();
 
     let gen = readFileSync("./src/generated/index.ts", "utf8");
-    const updateLicenseIds = "export const licenseIds = {} as const;";
+    const updateLicenseIds = "export const licenseIds";
     const index = gen.indexOf(updateLicenseIds);
+    const nextSemiColonIndex = gen.indexOf(";", index);
 
-    // TODO: add edge case where if licenseIds already exists
     let licenseContent = "export const licenseIds = ";
     licenseContent += JSON.stringify(licenseIds, null, "\t");
     licenseContent += " as const;";
 
     gen =
-      gen.slice(0, index) +
-      licenseContent +
-      gen.slice(index + updateLicenseIds.length);
+      gen.slice(0, index) + licenseContent + gen.slice(nextSemiColonIndex + 1);
 
     writeFileSync("./src/generated/index.ts", gen, "utf8");
 
@@ -69,12 +67,11 @@ export const genSolidityVersions = async () => {
     const solVersions = await getSolidityVersions();
 
     let gen = readFileSync("./src/generated/index.ts", "utf8");
-    const updateSolidityVersions =
-      "export const solidityVersions = {} as const;";
+    const updateSolidityVersions = "export const solidityVersions";
 
     const index = gen.indexOf(updateSolidityVersions);
+    const nextSemiColonIndex = gen.indexOf(";", index);
 
-    // TODO: add edge case where if solidityVersions already exists
     let solidityVersionsContent = "export const solidityVersions = ";
     solidityVersionsContent += JSON.stringify(solVersions, null, "\t");
     solidityVersionsContent += " as const;";
@@ -82,7 +79,7 @@ export const genSolidityVersions = async () => {
     gen =
       gen.slice(0, index) +
       solidityVersionsContent +
-      gen.slice(index + updateSolidityVersions.length);
+      gen.slice(nextSemiColonIndex + 1);
 
     writeFileSync("./src/generated/index.ts", gen, "utf8");
 
