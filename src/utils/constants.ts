@@ -13,7 +13,11 @@ export const tabPlaceholder = (place: number, value: string) => {
   >;
 };
 
-export const choicePlaceholder = (place: number, value: Choice) => {
+export const choicePlaceholder = (place: number, value: Choice | null) => {
+  if (!value) {
+    return `${place}`;
+  }
+
   return ("${" + place + value + "}") as ChoiceType<typeof place, typeof value>;
 };
 
