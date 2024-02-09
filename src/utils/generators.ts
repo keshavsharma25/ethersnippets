@@ -54,6 +54,7 @@ export const getSolidityVersions = async () => {
 
   for (const version of versions) {
     solVersion[version] = version;
+    solVersion[`^${version}`] = `^${version}`;
   }
 
   solVersion["0.7.x"] = ">=0.7.0 < 0.8.0";
@@ -88,3 +89,5 @@ export const genSolidityVersions = async () => {
     console.log(err);
   }
 };
+
+genSolidityVersions();
