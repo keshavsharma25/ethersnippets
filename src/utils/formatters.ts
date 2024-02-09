@@ -9,7 +9,7 @@ export const primitiveTypesChoices = (): Choice => {
 
 // gen licenseIdChoices where ids which comes from generated/index.ts
 export const licenseIdChoices = (): Choice | null => {
-  const ids = Object.values(licenseIds);
+  const ids = Object.keys(licenseIds);
   if (ids.length === 0) {
     return null;
   }
