@@ -29,14 +29,21 @@ export const genLicenseIds = async () => {
     licenseContent += JSON.stringify(licenseIds, null, "\t");
     licenseContent += " as const;";
 
-    gen =
-      gen.slice(0, index) + licenseContent + gen.slice(nextSemiColonIndex + 1);
+    if (index > -1 && nextSemiColonIndex > -1) {
+      gen =
+        gen.slice(0, index) +
+        licenseContent +
+        gen.slice(nextSemiColonIndex + 1);
+    } else {
+      console.log("Could not find licenseIds in src/generated/index.ts");
+      return;
+    }
 
     writeFileSync("./src/generated/index.ts", gen, "utf8");
 
     console.log("Generated licenseIds!");
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -77,17 +84,25 @@ export const genSolidityVersions = async () => {
     solidityVersionsContent += JSON.stringify(solVersions, null, "\t");
     solidityVersionsContent += " as const;";
 
-    gen =
-      gen.slice(0, index) +
-      solidityVersionsContent +
-      gen.slice(nextSemiColonIndex + 1);
+    if (index > -1 && nextSemiColonIndex > -1) {
+      gen =
+        gen.slice(0, index) +
+        solidityVersionsContent +
+        gen.slice(nextSemiColonIndex + 1);
+    } else {
+      console.error(
+        "Could not find solidityVersions in src/generated/index.ts",
+      );
+      return;
+    }
 
     writeFileSync("./src/generated/index.ts", gen, "utf8");
 
     console.log("Generated solidity versions!");
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
+genLicenseIds();
 genSolidityVersions();
