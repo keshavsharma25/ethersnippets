@@ -16,11 +16,11 @@
     "snippets": [
       {
         "language": "solidity",
-        "path": "./snippets/generatedSoliditySnippets.json"
+        "path": "./snippets/genSolSnippets.json"
       },
       {
         "language": "vyper",
-        "path": "./snippets/generatedVyperSnippets.json"
+        "path": "./snippets/genVySnippets.json"
       }
     ],
     "commands": [
