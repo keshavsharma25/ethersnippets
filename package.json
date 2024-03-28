@@ -31,11 +31,13 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "pnpm run compile",
+    "vscode:prepublish": "pnpm run gen-helpers && pnpm run gen-snippets && pnpm run compile",
     "lint": "eslint src --ignore-path .eslintignore --ext .ts,.js",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+    "format": "prettier --ignore-path .gitignore --write '**/*.+(js|ts|json)'",
     "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./"
+    "watch": "tsc -watch -p ./",
+    "gen-snippets": "ts-node ./src/utils/genSnippet.ts",
+    "gen-helpers": "ts-node ./src/utils/generators.ts"
   },
   "devDependencies": {
     "@types/node": "^20.10.8",
