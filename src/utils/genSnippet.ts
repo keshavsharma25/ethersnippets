@@ -7,7 +7,7 @@ export const genSnippets = async () => {
 
   try {
     writeFileSync(
-      "./snippets/generatedSoliditySnippets.json",
+      "./snippets/genSolSnippets.json",
       JSON.stringify(soliditySnippets, null, "\t"),
       {
         encoding: "utf-8",
